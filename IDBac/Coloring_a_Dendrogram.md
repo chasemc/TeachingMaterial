@@ -3,21 +3,15 @@ Coloring\_a\_Dendrogram
 Chase Clark
 June 17, 2018
 
-Originally I was going to provide a RDS fileto use but decided against it. I left the instructions here for that since they were already written, but this part may be skipped.
+### Introduction
 
-### Reading in the file
+Dendrograms are a popular way to summarize high-dimensional data in a way that is (somewhat) more interpretable by our puny-human brains. They are used in IDBac to show similarity of protein fingerprints between samples but also, more traditionally, to show phylogenetic relationships. It is also used in many other ways.
 
-Replace `zz.RDS` with the full file path to `zz.RDS`
+Because of their use in IDBac and 16S analysis, I think these will be the first of the higher-level uses of programming that you will encounter during your project. Also, coloring or otherwise distinguishing the labels of a dendrogram tends to be one of the most useful ways to interact and highlight portions of a tree.
 
-`.rds` is a base-type storage file for R, it is efficient and more importantly... when loading it into R it can be assigned to any variable name - this means no NameSpace clashes
+Therefore, I wrote a quick intro to coloring dendrograms in R. While I say it is an "intro" and does it covers some of the very basics of R, it is not meant as a complete introduction... aka it is not expected that you will be coloring dendrograms after a first-pass/ or that you won't have to ask me for help or won't have to search google/stackoverflow/community.rstudio.com for help.
 
-In this case I took a matrix (where rows = samples, and columns = binned peaks) and called `dist()` on it to compute a distance matrix. Then I computed a dendrogram with `hclust()` In IDBac it's a bit more complicated than this (had to create own cosine function, interactivity, each function has settings, etc ) but this is the easiest for explaining.
-
-OK, so we will read the rds file using the function `readRDS()` and assign the contents to the variable `hclustObject`
-
-``` r
-hclustObject <- readRDS("zz.RDS")
-```
+------------------------------------------------------------------------
 
 Begin
 =====
@@ -293,7 +287,7 @@ hclustObject %>%
   plot
 ```
 
-![](Coloring_a_Dendrogram_files/figure-markdown_github/unnamed-chunk-23-1.png)
+![](Coloring_a_Dendrogram_files/figure-markdown_github/unnamed-chunk-22-1.png)
 
 And now plot with all labels colored blue:
 
@@ -303,7 +297,7 @@ hclustObject %>%
   plot
 ```
 
-![](Coloring_a_Dendrogram_files/figure-markdown_github/unnamed-chunk-24-1.png)
+![](Coloring_a_Dendrogram_files/figure-markdown_github/unnamed-chunk-23-1.png)
 
 ### Exercise:
 
@@ -366,6 +360,6 @@ hclustObject %>%
   plot
 ```
 
-![](Coloring_a_Dendrogram_files/figure-markdown_github/unnamed-chunk-30-1.png)
+![](Coloring_a_Dendrogram_files/figure-markdown_github/unnamed-chunk-29-1.png)
 
 ### How would you color everything black, except Fiats red and Mercedes ("Merc") blue?
